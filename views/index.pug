@@ -1,0 +1,27 @@
+extends default
+
+block content
+    section
+        .container 
+            .row
+                .col-12.text-center 
+                    h1 #{title}
+                    p #{today}
+                if datas[0]
+                    .col-12.text-center
+                        p#sales(style="font-size: 10vw;font-weight: bold;color: red;") #{datas[0].sales} ¥
+                    .col-12
+                        ul.list-group
+                            li.list-group-item 注文数 : #{datas[0].total} 件
+                            li.list-group-item 平均注文額 : #{datas[0].avg} ¥
+        //.container(style="padding-top:40px")
+            .row
+                .col-12
+                    h3 売上合計額
+                    #graph1
+                .col-12
+                    h3 注文数
+                    #graph2
+                .col-12
+                    h3 平均注文額
+                    #graph3

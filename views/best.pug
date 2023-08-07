@@ -1,0 +1,74 @@
+extends default
+
+block content
+    section
+        .container 
+            h1 #{title} 
+            span(style="font-size:smaller") #{today}
+            .content
+                if ! datas[0].w
+                    ul.list-group
+                        li.list-group-item 売上合計額 : #{sales} ¥
+                        li.list-group-item 平均注文額 : #{avg} ¥
+                        li.list-group-item 注文数 : #{total} 件
+                .table-responsive-sm(style="width: 100%;")
+                    table.table
+                        thead
+                            tr
+                                th(scope="col") #
+                                th(scope="col") 
+                                    if datas[0].w
+                                        span キーワード
+                                    else
+                                        span 商品名
+                                th(scope="col") 
+                                    if datas[0].c
+                                        span 売上合計額
+                                    else
+                                        span 値段
+                        tbody
+                            - var max = 0
+                            if datas[0].c
+                                - max = 100
+                            else
+                                - max = datas.length
+                                    
+                            each data, index in datas
+                                if index < max
+                                    tr.keyword(data-value=`${data.w}`)
+                                        th.index(scope="row") #{index + 1}
+                                        td 
+                                            if data.w
+                                                a(href=`/keyword/${data.w}`)
+                                                    span #{data.w}
+                                                .row
+                                                    .col-6
+                                                        a(target="_blanck" href=`https://www.amazon.co.jp/s?k=${data.w}`)
+                                                            span.badge.badge-warning.badge-secondary Amazon
+                                                    .col-6
+                                                        a(target="_blanck" href=`https://www.mercari.com/jp/search/?keyword=${data.w}`)
+                                                            span.badge.badge-danger.badge-secondary Mercari
+                                            else
+                                                a(target="_blanck" href=`${data.url}`)
+                                                    span #{data.title}
+                                                .row
+                                                    .col-6
+                                                        a(target="_blanck" href=`https://www.amazon.co.jp/s?k=${data.title}`)
+                                                            span.badge.badge-warning.badge-secondary Amazon
+                                                    .col-6
+                                                        a(target="_blanck" href=`https://www.mercari.com/jp/search/?keyword=${data.title}`)
+                                                            span.badge.badge-danger.badge-secondary Mercari
+                                        td
+                                            if data.w
+                                                .row
+                                                    .col-12
+                                                        span.uri
+                                                    .col-12
+                                                        span.add(style="cursor:pointer;padding:15px" data-value=`${data.w}`).badge.badge-info.badge-secondary BASE
+                                                        span.delete(style="margin-left:10px;cursor:pointer;display:none" data-value=`${data.w}`).badge.badge-danger.badge-secondary 削除する
+                                            else
+                                                .row
+                                                    .col-12
+                                                        span #{data.price} ¥
+                                                    .col-12
+                                                        span.add(style="cursor:pointer;padding:15px" data-value=`${data.w}`).badge.badge-info.badge-secondary BASE

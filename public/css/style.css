@@ -1,0 +1,190 @@
+/* ==========================================================================
+   #STYLES
+   ========================================================================== */
+
+
+/**
+ *
+ * [1]: Inheriting box sizing slightly better best-practice
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ *
+ * [2]: WordPress System font-stack
+ */
+
+
+/* RESET
+   ========================================================================== */
+
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit; /* [1] */
+  margin: 0;
+  padding: 0;
+}
+h1 {
+    padding: 0.3em;
+}
+.row {
+    margin:unset !important;
+}
+
+
+/* INDEX
+   ========================================================================== */
+.index .info {
+height: 100vh;
+background: rgba(102, 102, 102, 0.59);
+padding: 0 15px;
+}
+.index .cont {
+width: 100%;
+}
+
+/* TEMPLATE INDEX
+   ========================================================================== */
+
+.index .image img {
+display: none !important;
+}
+/* TEMPLATE
+   ========================================================================== */
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; /* [2] */
+}
+
+.pass{display: none}
+
+#basic {
+height: 90vh;
+width: 90%;
+position: absolute;
+background-position: top left;
+background-repeat: no-repeat;
+background-size: 30%;
+margin: 15px;
+z-index: 10;
+    display: none
+}
+
+.image {
+width: 100%;
+height: 100vh;
+background-position: center;
+background-size: 70%;
+background-repeat: no-repeat;
+position: relative;
+}
+
+.info {
+display: flex;
+align-items: center;
+color: #fff !important;
+}
+.cont {
+width: 100%;
+}
+.title,.price{
+    text-align: center;
+}
+.template1 .title,.template1 .price,
+.template2 .title,.template2 .price{
+    text-align: center;
+    color: #fff !important;
+}
+.price span {
+font-size: 3.5em;
+    font-family: Arial Black;
+}
+
+.title span {
+font-weight: bold;
+font-size: 1.5em;
+font-family: Avenir Next;
+}
+
+/*IF AARTICLE*/
+.article .title,.article .price {
+    text-align: left !important;
+}
+.article .title span {
+    padding-left: 5px;
+    font-size: 51px;
+}
+.article .price p {
+padding-left: 5px;
+font-size: 2.1em;
+font-weight: 400;
+font-family: -apple-system;
+}
+
+/* TEMPLATE3&4
+========================================================================== */
+.template3 .info,.template4 .info {
+    background: #fff !important;
+}
+/* TEMPLATE END
+========================================================================== */
+.copyr {
+height: 100vh;
+display: flex;
+align-items: center;
+}
+
+.copyr span {
+width: 100%;
+font-weight: bold;
+    font-size: 3em;
+}
+/* TEMPLATE tp-img-
+========================================================================== */
+.tp-img-b .info {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+color: #000 !important;
+}
+.tp-img-b .title span, .tp-img-b .price span {
+font-size: 1em !Important;
+}
+.tp-img-b .title span {
+font-weight: 400;
+}
+.tp-img-b .image {
+background-size: contain;
+}
+.tp-img-b img {
+display: block;
+width: 100vw;
+height: 100vh;
+object-fit: contain;
+}
+/* TEMPLATE MEIGARA
+========================================================================== */
+#ceo-img {
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+}
+.graph {
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+}
+#ceo-img span {
+    background: rgba(255, 255, 255, 0.65);
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}

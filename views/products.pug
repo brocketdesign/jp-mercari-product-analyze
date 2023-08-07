@@ -1,0 +1,25 @@
+extends default
+
+block content
+    section
+        .container.pt-2 
+            h1 #{title}
+            .row.m-3
+                .col-auto.shadow.border.bg-white.p-3.align-middle
+                    span Number of item(s) : 
+                    span #{data.length}
+            if data.length > 0
+                .table-responsive
+                    table.table.table-striped
+                            thead
+                                tr
+                                    th 画像
+                                    each val, key in data[0]
+                                        th #{key}
+                            tbody
+                                each el in data 
+                                    tr
+                                        td 
+                                            img(src=`${el.img}` width="100")
+                                        each val in el 
+                                            td #{val}
